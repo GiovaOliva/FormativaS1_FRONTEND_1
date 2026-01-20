@@ -1,0 +1,201 @@
+/* =========================
+   1) Variables
+========================= */
+:root {
+    --bg: #f5f5f5;
+    --text: #1f1f1f;
+    --muted: #555;
+
+    --primary: #1e1e2f;
+    --accent: #ff4d6d;
+
+    --card: #ffffff;
+    --border: #e7e7e7;
+
+    --radius: 14px;
+    --shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+    --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+    --maxw: 1100px;
+}
+
+/* =========================
+   2) Reset + Base
+========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 12px;
+    /* ayuda en pantallas pequeñas */
+}
+
+/* Layout centrado */
+header,
+main,
+footer {
+    max-width: var(--maxw);
+    margin: 18px auto;
+}
+
+/* =========================
+   3) Header
+========================= */
+header {
+    background: var(--primary);
+    color: white;
+    padding: 26px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 64px;
+    height: 64px;
+}
+
+header h1 {
+    font-size: 32px;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+
+header p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* =========================
+   4) Navegación
+========================= */
+nav ul {
+    list-style: none;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    min-width: 110px;
+    text-align: center;
+}
+
+nav a:hover {
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.10);
+}
+
+/* =========================
+   5) Main / Productos
+========================= */
+main {
+    padding: 18px;
+}
+
+#productos h2 {
+    margin: 10px 0 14px;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Grid responsive */
+.product-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+/* Card */
+.product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Selector avanzado */
+.product-card:nth-child(odd) {
+    border-left: 6px solid var(--accent);
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.product-card h3 {
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+.product-card p {
+    color: var(--muted);
+}
+
+/* Imagen controlada en CSS */
+.product-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: contain;
+    display: block;
+    margin: 10px 0;
+    background: #fafafa;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    padding: 8px;
+}
+
+/* =========================
+   6) Footer
+========================= */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 22px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+footer section {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+footer h2 {
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: var(--accent);
+}

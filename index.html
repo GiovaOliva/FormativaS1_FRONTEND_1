@@ -1,55 +1,71 @@
 <!DOCTYPE html>
 <html lang="es-CL">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnimeShop</title>
+    <title>AnimeShop | Tienda de artículos de animé</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
+
 <body>
 
     <header id="inicio">
-        <h1>AnimeShop</h1>
-        <p>Tu tienda de artículos animé favorita</p>
+        <div class="brand">
+            <img class="logo" src="./img/logo-animeshop.svg" alt="Logo de AnimeShop">
+            <div>
+                <h1>AnimeShop</h1>
+                <p>Tu tienda de artículos animé favorita</p>
+            </div>
+        </div>
+
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-
     <main>
-        <section id="productos">
-            <h2>Productos destacados</h2>
+        <section id="productos" aria-labelledby="titulo-productos">
+            <h2 id="titulo-productos">Productos destacados</h2>
 
-            <ul>
-                <li>
+            <ul class="product-list">
+                <li class="product-card">
                     <h3>Figura de acción Naruto</h3>
-                    <img src="./img/shopping.webp" alt="Figura de acción de Naruto Uzumaki modo sabio" width="220">
+                    <img src="./img/shopping.webp" alt="Figura de acción de Naruto Uzumaki modo sabio">
                     <p>Figura coleccionable del anime Naruto Shippuden.</p>
                 </li>
 
-                <li>
+                <li class="product-card">
                     <h3>Camiseta Attack on Titan</h3>
-                    <img src="./img/titan.jpg" alt="Camiseta de Attack on Titan, Eren Jeager Titan de ataque" width="220">
+                    <img src="./img/titan.jpg" alt="Camiseta de Attack on Titan, Eren Jeager Titan de ataque">
                     <p>Camiseta oficial inspirada en Shingeki no Kyojin.</p>
                 </li>
 
-                <li>
+                <li class="product-card">
                     <h3>Póster One Piece</h3>
-                    <img src="./img/610.webp" alt="Póster del anime One Piece, Roronoa Zoro cartel de recompensa" width="220">
+                    <img src="./img/610.webp" alt="Póster del anime One Piece, Roronoa Zoro cartel de recompensa">
                     <p>Póster decorativo del anime One Piece.</p>
                 </li>
             </ul>
+
         </section>
     </main>
 
     <footer id="contacto">
-        <p>Contacto: contacto@animeshop.cl</p>
-        <p>Síguenos en nuestras redes sociales</p>
+        <section aria-labelledby="titulo-contacto">
+            <h2 id="titulo-contacto">Contacto</h2>
+            <p>Correo: <a href="mailto:contacto@animeshop.cl">contacto@animeshop.cl</a></p>
+            <p>Síguenos en:
+                <a href="#" aria-label="Instagram de AnimeShop">Instagram</a> •
+                <a href="#" aria-label="Facebook de AnimeShop">Facebook</a>
+            </p>
+        </section>
     </footer>
 
 </body>
+
 </html>
