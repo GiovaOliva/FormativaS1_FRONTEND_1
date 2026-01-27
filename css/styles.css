@@ -16,7 +16,11 @@
     --shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
     --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.08);
 
-    --maxw: 1100px;
+    --surface: #fafafa;
+    --border-soft: #f0f0f0;
+    --radius-soft: 12px;
+
+    --maxw: 1200px;
 }
 
 /* =========================
@@ -136,6 +140,8 @@ main {
     padding: 14px;
     box-shadow: var(--shadow-soft);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
+    text-align: center;
+    /* ✅ centra todo el contenido (h3 y p) */
 }
 
 /* Selector avanzado */
@@ -164,10 +170,32 @@ main {
     object-fit: contain;
     display: block;
     margin: 10px 0;
-    background: #fafafa;
-    border-radius: 12px;
-    border: 1px solid #f0f0f0;
+    background: var(--surface);
+    border-radius: var(--radius-soft);
+    border: 1px solid var(--border-soft);
     padding: 8px;
+}
+
+.category-title {
+    margin: 40px 0 18px;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--primary);
+    position: relative;
+    margin: 48px 0 24px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.category-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 10px auto 0;
+    background: var(--accent);
+    border-radius: 2px;
 }
 
 /* =========================
@@ -185,6 +213,10 @@ footer {
 footer section {
     max-width: 700px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
 }
 
 footer h2 {
@@ -198,4 +230,79 @@ footer a {
 
 footer a:hover {
     color: var(--accent);
+}
+
+/* =========================
+   7) Accesibilidad + focus
+========================= */
+nav a:focus-visible,
+footer a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+/* =========================
+   8) Media Queries (Responsive)
+   Mobile / Tablet / Desktop
+========================= */
+
+/* 📱 NAV en móvil (evita que se rompa) */
+@media (max-width: 599px) {
+    nav ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    nav li:nth-child(3) {
+        grid-column: 1 / -1;
+        /* Contacto ocupa toda la fila */
+    }
+
+    nav a {
+        min-width: 0;
+        width: 100%;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+}
+
+/* 📲 TABLET */
+@media (min-width: 600px) and (max-width: 1023px) {
+
+    header,
+    main,
+    footer {
+        margin: 16px auto;
+    }
+
+    main {
+        padding: 16px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .product-card img {
+        height: 190px;
+    }
+
+    .product-list {
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+    }
+}
+
+/* 🖥️ ESCRITORIO */
+@media (min-width: 1024px) {
+    .product-list {
+        grid-template-columns: repeat(3, minmax(280px, 1fr));
+    }
 }
